@@ -17,16 +17,29 @@ class CharacterStatusBar extends DrawableObject {
     this.width = 200;
     this.height = 60;
 
-    this.loadImages(this.IMAGES);
+    this.loadImages(this.IMAGES); // Wie gehabt, in der DrawableObject zum Zeichenen der Bilder.
     this.setPercentage(100);
   }
 
+  /**
+   * Wird in der world.class.js auf Pepe sein "this.PepeStatusBar" angewand.
+   * In der "checkCollisions()", bezogen auf "energy" nach der "hit()" Fn auf den this.character, in movable-object.class.js.
+   * Bestimmung der Enerie in der Statusleiste.
+   * @param {current energy from Pepe} percentage
+   */
   setPercentage(percentage) {
     this.percentage = percentage;
+    /**\
+     * Die "resolveImageIndex()" Fn als ersatz der Indexierung für die "IMAGES".
+     */
     let path = this.IMAGES[this.resolveImageIndex()];
-    this.img = this.imageCache[path];
+    this.img = this.imageCache[path]; // img und imageCache sind dann in der DrawableObject deklariert.
   }
 
+  /**
+   * Einstufung der Barleiste.
+   * @returns number
+   */
   resolveImageIndex() {
     if (this.percentage == 100) {
       return 5;

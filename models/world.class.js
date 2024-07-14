@@ -12,7 +12,7 @@ class World {
   keyboard;
   camera_x = 0;
 
-  PepeStatusBar = new CharacterStatusBar();
+  pepeStatusBar = new CharacterStatusBar();
   coinStatusBar = new CoinStatusBar();
   bottleStatusBar = new BottleStatusBar();
 
@@ -57,7 +57,7 @@ class World {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         this.character.hit();
-        this.PepeStatusBar.setPercentage(this.character.energy);
+        this.pepeStatusBar.setPercentage(this.character.energy);
       }
     });
   }
@@ -81,24 +81,16 @@ class World {
    * ACHTUNG: Es ist nicht das Selbe "draw()"  wie es in der class DrawableObject definiert ist.
    */
   draw() {
-    // clearRect => Die Canvas Reseten.
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    /**
-     * Den Hintergrung zu den Bewegbaren Objekten in der X-Achse anpassen.
-     */
-    this.ctx.translate(this.camera_x, 0); // Die Welt verschieben. Der zweite Argument ist die Y-Achse, die nicht verschoben werden soll.
+    this.ctx.translate(this.camera_x, 0);
     this.addObjectsToMap(this.level.background);
     this.addObjectsToMap(this.level.clouds);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.throwableObjects);
-
-    /**
-     * Funktionen für nicht gebewegbare Zeichenbare Objekte.
-     */
     this.ctx.translate(-this.camera_x, 0);
 
-    this.addToMap(this.PepeStatusBar);
+    this.addToMap(this.pepeStatusBar);
     this.addToMap(this.coinStatusBar);
     this.addToMap(this.bottleStatusBar);
 
@@ -106,9 +98,6 @@ class World {
     this.addToMap(this.character);
     this.ctx.translate(-this.camera_x, 0);
 
-    /**
-     * this.draw() fps aktion.
-     */
     self = this;
     requestAnimationFrame(function () {
       self.draw();

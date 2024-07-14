@@ -9,6 +9,7 @@ class BottleStatusBar extends DrawableObject {
   ];
 
   percentage = 100;
+
   constructor() {
     super();
     this.y = 85;
@@ -19,6 +20,7 @@ class BottleStatusBar extends DrawableObject {
     this.loadImages(this.IMAGES);
     this.setPercentage(0);
   }
+
   setPercentage(percentage) {
     this.percentage = percentage;
     let path = this.IMAGES[this.resolveImageIndex()];

@@ -21,7 +21,7 @@ class DrawableObject {
   loadImages(array) {
     array.forEach((path) => {
       let img = new Image(); // Image erstellen. Dann,
-      img.src = path; // die source zuweisen.
+      img.src = path; // Die source dem Image Oblekt zuweisen; Durch den forEach Parameter.
       this.imageCache[path] = img;
       // Das Image mit seinem zugewiesenem source in das Array pushen.
       // Der [path] ist der Schlüssel im Array des jeweiligen Bildes.
