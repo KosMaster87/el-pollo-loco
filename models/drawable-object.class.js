@@ -44,11 +44,11 @@ class DrawableObject {
    * Und das nur für die drawable-object.class.js, da hier auch mit "this" bezeichnet ist.
    */
   drawFrame(ctx) {
-    if (this instanceof Character || this instanceof Chicken) {
-      /**
-       * Import from world.class.js
-       * Red rectangle
-       */
+    if (
+      this instanceof Character ||
+      this instanceof Chicken ||
+      this instanceof Endboss
+    ) {
       ctx.beginPath();
       ctx.lineWidth = "2";
       ctx.strokeStyle = "red";

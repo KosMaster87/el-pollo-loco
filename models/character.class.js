@@ -4,9 +4,9 @@ class Character extends MovableObject {
   height = 150;
   width = 85;
   x = 0;
-  y = 150;
+  y = 280;
   speed = 5;
-  world; // Der Karakter kann nun auf die Variablen aus der Welt zugreifen. Wird in der game.js mit der setWorld() Methode zugewiesen.
+  world;
   walking_sound = new Audio("audio/walkingCharacter.mp3");
 
   IMAGES_WALKING = [
@@ -47,15 +47,7 @@ class Character extends MovableObject {
   ];
 
   constructor() {
-    /**
-     * Load image from movable-object.class.js
-     */
     super().loadImage("img/2_character_pepe/2_walk/W-21.png");
-
-    /**
-     * Das super() startet auch diese fn.
-     * this. ist der Initiator für diesen Karakter. Die loadImages() wird dann in der Eltern Klasse "drawable-object.class.js weiter ausgeführt."
-     */
     this.loadImages(this.IMAGES_WALKING);
     this.loadImages(this.IMAGES_JUMPING);
     this.loadImages(this.IMAGES_DEAD);
@@ -65,65 +57,69 @@ class Character extends MovableObject {
   }
 
   /**
-   * Pepes Eigenschaften als Objekt.
+   * Speed optionts and Running direction.
+   * Also some animations.
    */
   animate() {
-    /**
-     * Speed optionts and Running direction.
-     * Die Eingaben des Benutzers, Um Pepe zu Bewegenm.
-     */
-    setInterval(() => {
-      this.walking_sound.pause();
-      this.EnterKeyboard();
-      this.world.camera_x = -this.x + 150; // Die Kamera an den Karackter gebunden, sodass die "world" sich mitbewegt. Pepe startet auch bei 100px weiter rechts.
-    }, 1000 / 60);
-    this.besidesFunctions();
+    setInterval(() => this.pepeMove(), 1000 / 60);
+    setInterval(() => this.pepeAnimate(), 1000 / 7);
   }
 
   /**
-   * Steuerung von Pepe durch die Eingabetasten.
+   * Control Pepe using the enter keys.
    */
-  EnterKeyboard() {
-    // Weill ich aus der "world" dem "Character" den zugrif gewährt habe,
-    // kann ich nun mit "this.world" innerhalb des "Characters" arbeiten.
-    // das "level" ist im "Level" definiert.
-    // ..end_x damit Pepe nach rechts nicht die Leinwand verlassen kann.
+  pepeMove() {
+    this.walking_sound.pause();
+
     if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-      this.moveRight(); // Hier evt. eine weitere Bedingung schreiben damit der Pepe auch die Laufanimation nicht mehr ausführt.
-      this.otherDirection = false;
-      this.walking_sound.play();
+      this.pepeMoveRightOptions();
     }
 
-    // this.x > -500 soll die Levelgrenze zur Linken Seite für Pepe sein.
-    // Die Grenze zu der rechten Seite ist in der level.class definiert.
     if (this.world.keyboard.LEFT && this.x > -500) {
-      this.moveLeft(); // Hier evt. eine weitere Bedingung schreiben damit der Pepe auch die Laufanimation nicht mehr ausführt.
-      this.otherDirection = true;
-      this.walking_sound.play();
+      this.pepeMoveLeftOptions();
     }
 
-    if (this.world.keyboard.SPACE && !this.isAboveGround()) {
+    if (
+      (this.world.keyboard.SPACE && !this.isAboveGround()) ||
+      (this.world.keyboard.UP && !this.isAboveGround())
+    ) {
       this.jump();
     }
+    this.world.camera_x = -this.x + 150;
   }
 
   /**
    * Some Auto playback images.
    */
-  besidesFunctions() {
-    setInterval(() => {
-      if (this.isHurt()) {
-        console.log("Pepe wurde verletzt.");
-        this.playAnimation(this.IMAGES_HURT);
-      } else if (this.isDead()) {
-        this.playAnimation(this.IMAGES_DEAD);
-      } else if (this.isAboveGround()) {
-        this.playAnimation(this.IMAGES_JUMPING);
-      } else {
-        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-          this.playAnimation(this.IMAGES_WALKING);
-        }
+  pepeAnimate() {
+    if (this.isHurt()) {
+      this.playAnimation(this.IMAGES_HURT);
+    } else if (this.isDead()) {
+      this.playAnimation(this.IMAGES_DEAD);
+    } else if (this.isAboveGround()) {
+      this.playAnimation(this.IMAGES_JUMPING);
+    } else {
+      if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+        this.playAnimation(this.IMAGES_WALKING);
       }
-    }, 1000 / 7);
+    }
+  }
+
+  /**
+   * The functions when Pepe moving right.
+   */
+  pepeMoveRightOptions() {
+    this.moveRight();
+    this.otherDirection = false;
+    this.walking_sound.play();
+  }
+
+  /**
+   * The functions when Pepe moving left.
+   */
+  pepeMoveLeftOptions() {
+    this.moveLeft();
+    this.otherDirection = true;
+    this.walking_sound.play();
   }
 }

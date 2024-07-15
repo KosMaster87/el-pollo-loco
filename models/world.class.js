@@ -4,7 +4,7 @@ class World {
   level = level1;
   character = new Character();
 
-  // throwableObjects = [];
+  throwableObjects = [];
   throwableObjects = [new ThrowableObject()];
 
   ctx;
@@ -107,7 +107,7 @@ class World {
   /**
    * Die Fn ist nur eine Zwischenfunktion vom Zeichnen-Fn zum Zeichnen-addToMap, die auch eine Hilfsfunktion für die "draw"-Fn ist.
    * Adds any objects with specific attributes.
-   * Im Grunde sollen sich diese Objekte ohne einer BenutzdrawImagereingabe Automatisch bewegen. Im gegensatz zu Pepe wo der erst gezeichnet wird, alsbald eine Eingabe erfolg.
+   * Im Grunde sollen sich diese Objekte ohne einer Benutzeingabe Automatisch bewegen. Im gegensatz zu Pepe wo der erst gezeichnet wird, alsbald eine Eingabe erfolg.
    * @param {The objects in this world.} objects
    */
   addObjectsToMap(objects) {
@@ -117,23 +117,19 @@ class World {
   }
 
   /**
-   * Die if Abfragen handhaben den Charakter, seinen Spiegelbild.
-   * Sowie die Gespiegelte Koardinaten des Canvas für den Charakter.
+   * Die if Abfragen händelt den Charakter, seinen Spiegelbild. Sowie die Gespiegelte Koardinaten des Canvas für den Charakter.
+   * The if query handles the character, its mirror image, and the mirrored coordinates of the canvas for the character.
    * Add to Canvas Board each things.
    * @param {movable object} mo
    */
   addToMap(mo) {
-    // console.log("Adding to map:", mo);
     if (mo.otherDirection) {
-      // nach rechts = true; Weiter mit "flipImage".
       this.flipImage(mo);
     }
 
-    mo.draw(this.ctx); // Weiter in der drawable-object.class.js.
-    mo.drawFrame(this.ctx); // Weiter in der drawable-object.class.js. // Die auserlesenen Objekte eine Umrandung.
+    mo.draw(this.ctx);
+    mo.drawFrame(this.ctx);
 
-    // Die Bedingung muss sein um die Richtung abzubrechen. (Die Aussage ist fraglich!!)
-    // Das ctx muss nach dem verdrehen von Pepes Anweisung in seine Ursprungsform gebracht werden damit die nachfolgenden frames wiederum in ihre richtige x-Achse Koardinierung gebracht werden.
     if (mo.otherDirection) {
       this.flipImageBack(mo);
     }

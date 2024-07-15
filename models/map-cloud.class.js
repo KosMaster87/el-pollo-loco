@@ -4,8 +4,6 @@ class Cloud extends MovableObject {
   y = 20;
   width = 500;
   height = 300;
-  
-  // speed = 0.15; // Die selbe geschwindigkeit für alle Wolken.
 
   IMAGES_CLAUD = [
     "img/5_background/layers/4_clouds/1.png",
@@ -16,20 +14,17 @@ class Cloud extends MovableObject {
 
   constructor() {
     super().loadImage("img/5_background/layers/4_clouds/1.png");
-
     this.loadImages(this.IMAGES_CLAUD);
-    this.x = Math.random() * 10000; // Start the cloud in random place.
-    this.speed = 0.15 + Math.random() * 0.25; // Random speed!
+    this.x = Math.random() * 10000;
+    this.speed = 0.15 + Math.random() * 0.25;
     this.animate();
   }
 
   /**
-   * Animate the clouds.
-   * In movable-object.class.js
+   * Speed optionts and Running direction.
+   * Also some animations.
    */
   animate() {
-    setInterval(() => {
-      this.moveLeft();
-    }, 1000 / 60); // millisecunden in 60 frames.
+    setInterval(() => this.moveLeft(), 1000 / 60);
   }
 }

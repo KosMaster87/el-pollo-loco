@@ -1,9 +1,16 @@
 "use strict";
 
+/**
+ * Im Grunde ist "level1" nur eine Hilfsdatei.
+ * Die eigentlichen Platzhalter für die Objekte sind in der "class Level" Deklaliert.
+ * Durch die Erstellung von "new Level" wird durch die Parameter in dem "constructor" der "class Level" die Objekte in den Jeweiligen Variablen gesetzt.\
+ * Beachte die Reichenfolge der Parameter in dem "construktor" und zu dem "new Level" Objekt.
+ */
+
 const level1 = new Level(
   [
     new Chicken(),
-    new Chicken(), 
+    new Chicken(),
     new Chicken(),
     new Chicken(),
     new Chicken(),

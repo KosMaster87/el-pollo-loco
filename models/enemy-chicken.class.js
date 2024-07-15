@@ -13,24 +13,18 @@ class Chicken extends MovableObject {
 
   constructor() {
     super().loadImage("img/3_enemies_chicken/chicken_normal/1_walk/1_w.png");
-
-    /**
-     * Das super() startet auch diese fn.
-     * this. ist der Initiator für diesen Karakter. Die loadImages() wird dann in der Eltern Klasse "drawable-object.class.js weiter ausgeführt."
-     */
     this.loadImages(this.IMAGES_WALKING);
     this.x = 200 + Math.random() * 10000; // Start the chicken in random place.
     this.speed = 0.15 + Math.random() * 0.25; // Random speed!
     this.animate();
   }
 
+  /**
+   * Speed optionts and Running direction.
+   * Also some animations.
+   */
   animate() {
-    setInterval(() => {
-      this.moveLeft();
-    }, 1000 / 60);
-
-    setInterval(() => {
-      this.playAnimation(this.IMAGES_WALKING);
-    }, 1000 / 7);
+    setInterval(() => this.moveLeft(), 1000 / 60);
+    setInterval(() => this.playAnimation(this.IMAGES_WALKING), 1000 / 7);
   }
 }

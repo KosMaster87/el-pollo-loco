@@ -1,10 +1,9 @@
 "use strict";
 
 class Endboss extends MovableObject {
-
-height = 400;
-width = 300;
-y = 50;
+  height = 400;
+  width = 300;
+  y = 50;
 
   IMAGES_WALKING = [
     "img/4_enemie_boss_chicken/2_alert/G5.png",
@@ -24,9 +23,11 @@ y = 50;
     this.animate();
   }
 
+  /**
+   * Speed optionts and Running direction.
+   * Also some animations.
+   */
   animate() {
-    setInterval(() => {
-      this.playAnimation(this.IMAGES_WALKING);
-    }, 1000 / 7);
+    setInterval(() => this.playAnimation(this.IMAGES_WALKING), 1000 / 7);
   }
 }
