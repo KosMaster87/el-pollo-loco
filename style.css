@@ -12,8 +12,27 @@ body {
   font-family: "Sancreek";
 }
 
+/* ----------------------------------------- */
 button {
   font-family: "Creepster";
+  letter-spacing: 0.2rem;
+  background-color: hsl(260deg 11% 95% / 89%);
+  border-radius: 0.5rem;
+  border: 0.09rem solid lightcoral;
+  cursor: pointer;
+}
+
+.buttonContainerFirst {
+  position: absolute;
+  top: 9rem;
+}
+
+.buttonContainerSecond {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
 }
 
 /* ----------------------------------------- */
@@ -28,35 +47,82 @@ h1 {
 
 /* ----------------------------------------- */
 .mainLayerForCanvas {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ----------------------------------------- */
 .canvas {
   background-color: rgb(72, 168, 88);
+  border-radius: 0.5rem;
 }
 
 /* ----------------------------------------- */
-.startScreenImage {
+.startLayerForCanvas {
   display: flex;
   width: 720px;
   height: 480px;
 }
 
+.startScreenImage {
+  width: 720px;
+  height: 480px;
+  border-radius: 0.5rem;
+}
+
+/* ----------------------------------------- */
 .startGameButton {
   display: flex;
-  position: absolute;
-  top: 90%;
-  left: 38%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.instructionPopUpButton {
+  display: flex;
   padding: 0.5rem;
   font-size: 1.2rem;
 }
 
 /* ----------------------------------------- */
-.instructionPopUp {
+.instructionPopUpSelf {
   font-family: "Creepster";
   font-size: 1rem;
   font-weight: 100;
+  background-color: hsl(260deg 11% 95% / 89%);
+  border-radius: 1rem;
+  border: 0.2rem solid lightcoral;
+  width: 16rem;
+  height: 16rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.instructionPopUpHelper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3.2rem;
+
+  div {
+    cursor: default;
+  }
+}
+
+/* ----------------------------------------- */
+
+.restartAfterGameOverBtn {
+  font-size: 1.25rem;
+  background-color: rgba(255, 177, 0.8);
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
 /* ----------------------------------------- */

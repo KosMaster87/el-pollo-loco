@@ -62,14 +62,37 @@
           src="./img/9_intro_outro_screens/start/startscreen_1.png"
           alt="Start screen image"
         />
+      </div>
 
-        <button
-          class="startGameButton"
-          id="startGameButton"
-          onclick="initGame()"
+      <!-- -------------------------------------------------------------- -->
+      <!-- START LAYER -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="buttonContainerFirst"
+        id="buttonContainerFirst"
+        style="display: block"
+      >
+        <div
+          class="buttonContainerSecond"
+          id="buttonContainerSecond"
+          style="display: flex"
         >
-          Pepe in action!
-        </button>
+          <button
+            class="startGameButton"
+            id="startGameButton"
+            onclick="initGame()"
+          >
+            Pepe in action!
+          </button>
+
+          <button
+            class="instructionPopUpButton"
+            id="instructionPopUpButton"
+            onclick="openInstructionPopUpSelf()"
+          >
+            INSTRUCTIONS
+          </button>
+        </div>
       </div>
 
       <!-- -------------------------------------------------------------- -->
@@ -88,8 +111,8 @@
         />
 
         <button
-          class="restartAfterGameOver"
-          id="restartAfterGameOver"
+          class="restartAfterGameOverBtn"
+          id="restartAfterGameOverBtn"
           onclick="restart()"
         >
           Try again
@@ -112,8 +135,8 @@
         />
 
         <button
-          class="restartAfterGameOver"
-          id="restartAfterGameOver"
+          class="restartAfterGameOverBtn"
+          id="restartAfterGameOverBtn"
           onclick="restart()"
         >
           Try again
@@ -124,22 +147,24 @@
       <!-- INSTRUCTION POPUP -->
       <!-- -------------------------------------------------------------- -->
       <div
-        class="instructionPopUp"
-        id="instructionPopUp"
+        class="instructionPopUpSelf"
+        id="instructionPopUpSelf"
         style="display: none"
       >
-        <div class="controllRight" id="controllRight">WALK RIGHT</div>
-        <div class="controllLeft" id="controllLeft">WALK LEFT</div>
-        <div class="controllThrow" id="controllThrow">THROW YOUR SALSA</div>
-        <div class="controllJump" id="controllJump">JUMP OVER</div>
+        <div class="instructionPopUpHelper">
+          <div class="controllRight" id="controllRight">WALK RIGHT</div>
+          <div class="controllLeft" id="controllLeft">WALK LEFT</div>
+          <div class="controllThrow" id="controllThrow">THROW YOUR SALSA</div>
+          <div class="controllJump" id="controllJump">JUMP OVER</div>
 
-        <button
-          class="restartAfterGameOver"
-          id="restartAfterGameOver"
-          onclick="restart()"
-        >
-          Restart game
-        </button>
+          <button
+            class="restartAfterGameOverBtn"
+            id="restartAfterGameOverBtn"
+            onclick="restart()"
+          >
+            Restart game
+          </button>
+        </div>
       </div>
 
       <!-- -------------------------------------------------------------- -->
