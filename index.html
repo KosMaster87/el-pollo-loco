@@ -32,20 +32,29 @@
     <title>El Pollo Loco</title>
   </head>
 
-  <body onload="init()">
+  <body>
     <h1>El Pollo loco</h1>
 
-    <div id="innerGameDivision" class="innerGameDivision">
-      <canvas id="canvas" class="canvas" width="720px" height="480px"></canvas>
-      <button onclick="startGame()">start game</button>
+    <div id="mainLayerForCanvas" class="mainLayerForCanvas">
+      <canvas
+        id="canvas"
+        class="canvas"
+        style="display: none"
+        width="720px"
+        height="480px"
+      ></canvas>
 
-      <div id="innerStartDivision" class="innerStartDivision">
+      <div id="startLayerForCanvas" class="startLayerForCanvas">
         <img
-          id="theStartScreen"
-          class="theStartScreen"
+          id="startScreenImage"
+          class="startScreenImage"
           src="img/9_intro_outro_screens/start/startscreen_1.png"
-          alt="The start screen"
+          alt="Start screen image"
         />
+
+        <button class="startGameBtn" id="startGameBtn" onclick="startGame()">
+          Pepe in action!
+        </button>
       </div>
     </div>
   </body>
