@@ -35,6 +35,14 @@ button {
   gap: 0.2rem;
 }
 
+.buttonContainerThird {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
 /* ----------------------------------------- */
 h1 {
   letter-spacing: 0.2rem;
@@ -76,6 +84,21 @@ h1 {
   display: flex;
   padding: 0.5rem;
   font-size: 1.2rem;
+}
+
+.muteButton {
+  height: 2rem;
+  width: 2rem;
+}
+
+.forceRestartGameBtn {
+  height: 3rem;
+  width: 3rem;
+}
+
+.quikInstructionBtn {
+  height: 2rem;
+  width: 2rem;
 }
 
 .instructionPopUpButton {

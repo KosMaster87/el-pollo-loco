@@ -5,7 +5,9 @@
 // ------------------------------------------------------------------------
 function startGame() {
   document.getElementById("startLayerForCanvas").style.display = "none";
+  document.getElementById("buttonContainerSecond").style.display = "none";
   document.getElementById("canvas").style.display = "block";
+  document.getElementById("buttonContainerThird").style.display = "flex";
   // initGame();
 }
 
