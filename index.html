@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <script src="./models/drawable-object.class.js"></script>
     <script src="./models/movable-object.class.js"></script>
@@ -37,6 +38,8 @@
 
     <div class="mainLayerForCanvas" id="mainLayerForCanvas">
       <!-- -------------------------------------------------------------- -->
+      <!-- CANVAS -->
+      <!-- -------------------------------------------------------------- -->
       <canvas
         id="canvas"
         class="canvas"
@@ -45,6 +48,8 @@
         height="480px"
       ></canvas>
 
+      <!-- -------------------------------------------------------------- -->
+      <!-- START LAYER -->
       <!-- -------------------------------------------------------------- -->
       <div
         class="startLayerForCanvas"
@@ -61,12 +66,14 @@
         <button
           class="startGameButton"
           id="startGameButton"
-          onclick="startGame()"
+          onclick="initGame()"
         >
           Pepe in action!
         </button>
       </div>
 
+      <!-- -------------------------------------------------------------- -->
+      <!-- GAME OVER LAYER -->
       <!-- -------------------------------------------------------------- -->
       <div
         class="gameOverLayerForCanvas"
@@ -90,6 +97,8 @@
       </div>
 
       <!-- -------------------------------------------------------------- -->
+      <!-- GAME WIN LAYER -->
+      <!-- -------------------------------------------------------------- -->
       <div
         class="gameIsWinningOverLayerForCanvas"
         id="gameIsWinningOverLayerForCanvas"
@@ -110,6 +119,30 @@
           Try again
         </button>
       </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <!-- INSTRUCTION POPUP -->
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="instructionPopUp"
+        id="instructionPopUp"
+        style="display: none"
+      >
+        <div class="controllRight" id="controllRight">WALK RIGHT</div>
+        <div class="controllLeft" id="controllLeft">WALK LEFT</div>
+        <div class="controllThrow" id="controllThrow">THROW YOUR SALSA</div>
+        <div class="controllJump" id="controllJump">JUMP OVER</div>
+
+        <button
+          class="restartAfterGameOver"
+          id="restartAfterGameOver"
+          onclick="restart()"
+        >
+          Restart game
+        </button>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
 
       <!-- -------------------------------------------------------------- -->
     </div>

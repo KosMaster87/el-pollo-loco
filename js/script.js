@@ -3,7 +3,7 @@
 function startGame() {
   document.getElementById("startLayerForCanvas").style.display = "none";
   document.getElementById("canvas").style.display = "block";
-  init();
+  // initGame();
 }
 
 function gameOver() {
@@ -14,13 +14,15 @@ function gameOver() {
 
 function winningGame() {
   document.getElementById("canvas").style.display = "none";
-  document.getElementById("gameIsWinningOverLayerForCanvas").style.display = "block";
+  document.getElementById("gameIsWinningOverLayerForCanvas").style.display =
+    "block";
   clearAllIntervals();
 }
 
 function restart() {
   document.getElementById("gameOverLayerForCanvas").style.display = "none";
-  document.getElementById("gameIsWinningOverLayerForCanvas").style.display = "none";
+  document.getElementById("gameIsWinningOverLayerForCanvas").style.display =
+    "none";
   initGame();
 }
 
