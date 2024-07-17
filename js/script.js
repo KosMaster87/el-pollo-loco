@@ -1,31 +1,26 @@
 "use strict";
 
 function startGame() {
-  document.getElementById("startLayerForCanvas").style.display = "none"; //schließe startbild
-  document.getElementById("canvas").style.display = "block"; //zeige spielbild
-  init(); //starte den intervall
+  document.getElementById("startLayerForCanvas").style.display = "none";
+  document.getElementById("canvas").style.display = "block";
+  init();
 }
 
 function gameOver() {
-  document.getElementById("canvas").style.display = "none"; //entferne das spielbild
-  document.getElementById("progress-bar").style.display = "none"; //entferne das spielbild
-  document.getElementById("looseDiv").style.display = "block"; //zeige game over bild
-  clearAllIntervals(); //beende den intervall(stoppe das spiel)
+  document.getElementById("canvas").style.display = "none";
+  document.getElementById("gameOverLayerForCanvas").style.display = "block";
+  clearAllIntervals();
 }
 
 function winningGame() {
-  music.pause();
   document.getElementById("canvas").style.display = "none";
-  document.getElementById("progress-bar").style.display = "none";
-  document.getElementById("winDiv").style.display = "block";
+  document.getElementById("gameIsWinningOverLayerForCanvas").style.display = "block";
   clearAllIntervals();
 }
 
 function restart() {
-  music.pause();
-  document.getElementById("looseDiv").style.display = "none";
-  document.getElementById("progress-bar").style.display = "none";
-  document.getElementById("winDiv").style.display = "none";
+  document.getElementById("gameOverLayerForCanvas").style.display = "none";
+  document.getElementById("gameIsWinningOverLayerForCanvas").style.display = "none";
   initGame();
 }
 

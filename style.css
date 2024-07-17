@@ -44,7 +44,7 @@ h1 {
   height: 480px;
 }
 
-.startGameBtn {
+.startGameButton {
   display: flex;
   position: absolute;
   top: 90%;

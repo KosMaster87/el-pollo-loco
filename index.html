@@ -35,7 +35,8 @@
   <body>
     <h1>El Pollo loco</h1>
 
-    <div id="mainLayerForCanvas" class="mainLayerForCanvas">
+    <div class="mainLayerForCanvas" id="mainLayerForCanvas">
+      <!-- -------------------------------------------------------------- -->
       <canvas
         id="canvas"
         class="canvas"
@@ -44,18 +45,73 @@
         height="480px"
       ></canvas>
 
-      <div id="startLayerForCanvas" class="startLayerForCanvas">
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="startLayerForCanvas"
+        id="startLayerForCanvas"
+        style="display: block"
+      >
         <img
           id="startScreenImage"
           class="startScreenImage"
-          src="img/9_intro_outro_screens/start/startscreen_1.png"
+          src="./img/9_intro_outro_screens/start/startscreen_1.png"
           alt="Start screen image"
         />
 
-        <button class="startGameBtn" id="startGameBtn" onclick="startGame()">
+        <button
+          class="startGameButton"
+          id="startGameButton"
+          onclick="startGame()"
+        >
           Pepe in action!
         </button>
       </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="gameOverLayerForCanvas"
+        id="gameOverLayerForCanvas"
+        style="display: none"
+      >
+        <img
+          class="gameOverScreenImage"
+          id="gameOverScreenImage"
+          src="img/9_intro_outro_screens/game_over/game over.png"
+          alt="Game over screen image"
+        />
+
+        <button
+          class="restartAfterGameOver"
+          id="restartAfterGameOver"
+          onclick="restart()"
+        >
+          Try again
+        </button>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
+      <div
+        class="gameIsWinningOverLayerForCanvas"
+        id="gameIsWinningOverLayerForCanvas"
+        style="display: none"
+      >
+        <img
+          class="gameOverScreenImage"
+          id="gameOverScreenImage"
+          src="img/9_intro_outro_screens/game_over/game over.png"
+          alt="Game over screen image"
+        />
+
+        <button
+          class="restartAfterGameOver"
+          id="restartAfterGameOver"
+          onclick="restart()"
+        >
+          Try again
+        </button>
+      </div>
+
+      <!-- -------------------------------------------------------------- -->
     </div>
   </body>
 </html>
