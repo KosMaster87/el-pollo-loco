@@ -6,14 +6,14 @@ class Cloud extends MovableObject {
   height = 300;
 
   IMAGES_CLAUD = [
-    "img/5_background/layers/4_clouds/1.png",
-    "img/5_background/layers/4_clouds/2.png",
-    "img/5_background/layers/4_clouds/1.png",
-    "img/5_background/layers/4_clouds/2.png",
+    "./img/5_background/layers/4_clouds/1.png",
+    "./img/5_background/layers/4_clouds/2.png",
+    "./img/5_background/layers/4_clouds/1.png",
+    "./img/5_background/layers/4_clouds/2.png",
   ];
 
   constructor() {
-    super().loadImage("img/5_background/layers/4_clouds/1.png");
+    super().loadImage("./img/5_background/layers/4_clouds/1.png");
     this.loadImages(this.IMAGES_CLAUD);
     this.x = Math.random() * 10000;
     this.speed = 0.15 + Math.random() * 0.25;
