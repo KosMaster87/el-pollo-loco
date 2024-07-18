@@ -95,9 +95,14 @@ h1 {
   width: 1.25rem;
 }
 
-.forceRestartGameBtn {
+.fullScreenModeBtn {
   height: 1.5rem;
   width: 1.5rem;
+}
+
+.quikInstructionBtn {
+  height: 1.25rem;
+  width: 1.25rem;
 
   border: none;
   background: none;
@@ -109,11 +114,6 @@ h1 {
     height: 1.5rem;
     width: 1.5rem;
   }
-}
-
-.quikInstructionBtn {
-  height: 1.25rem;
-  width: 1.25rem;
 }
 
 .instructionPopUpButton {
