@@ -36,10 +36,10 @@ button {
 }
 
 .buttonContainerThird {
-  flex-direction: row;
+  /* flex-direction: row;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   gap: 0.5rem;
 
   img {
@@ -95,11 +95,6 @@ h1 {
   width: 1.25rem;
 }
 
-.fullScreenModeBtn {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
 .quikInstructionBtn {
   height: 1.25rem;
   width: 1.25rem;
@@ -107,13 +102,17 @@ h1 {
   border: none;
   background: none;
   padding: 0;
-  cursor: pointer;
 
   img {
     display: block;
     height: 1.5rem;
     width: 1.5rem;
   }
+}
+
+.fullScreenModeBtn {
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 .instructionPopUpButton {
